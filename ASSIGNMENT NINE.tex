@@ -1,0 +1,71 @@
+\documentclass[12 pt, letterpaper, twoside]{article}
+
+\title{ASSIGNMENT 9}
+\author{Beerelly srinitha}
+
+\usepackage{circuitikz}
+
+
+
+\begin{document}
+
+\maketitle
+
+$Question:$;
+
+
+$The logic gates shown in the digital circuit below use strong pull-down nMOS transistors for
+LOW logic level at the outputs. When the pull-downs are off, high-value resistors set the
+output logic levels to HIGH (i.e. the pull-ups are weak). Note that some nodes are
+intentionally shorted to implement “wired logic”.$
+$Such shorted nodes will be HIGH only ifthe outputs of all the gates whose outputs are shorted are HIGH.$
+
+
+
+$The number of distinct values of X3X2X1X0 (out of the 16 possible values) that give Y=1  is$
+
+
+
+$ANSWER  IS:8$
+$X0 X1 X2 X3 $
+
+$If X3 =0 ,then band on X1$
+
+$if X1 =0 output is 0$
+
+$X1 =1 output is0$
+
+$So only 8 inputs$
+
+
+
+\begin{circuitikz}
+ \draw
+(-6,-1)node[xor port](myxor1){}
+
+(-1,0)node[and port](myand2){}
+
+(4,-1)node[or port](myor3){}
+
+(-6,-3)node[not port](mynot4){}
+
+(-3,2.3)node[not port](mynot5) {}
+
+(0,-5)--(myor3.in 2)
+(-7,2.3)--(myand2.in 1)
+(mynot4.out)--(myand2.in 2)
+(mynot5.out)--(myor3.in 1);
+\draw (-8,-3)--(-6.7,-3);
+
+ \node(x2) at (-7.7,-1.2) {$X1$} , \node(x1) at (-7.7,-0.7) {$X2$}, \node(x0) at (-8,2.3) {$X0$}, \node(x3) at (-8.2,-3) {$X3$} ;\node(x4) at (4.5,-1) {$Y$} ;
+\draw (-7.7,2.3)--(-3.5,2.3);
+\draw (-7.6,-3)--(-7.6,-5);
+\draw (-7.6,-5)--(0,-5);
+\draw (-1,0)--(1.5,0);
+\draw (-6,-1)--(-3.2,-1);
+\end{circuitikz}
+$BOOLEAN EXPRESSION :$
+$Y=(X0)(X3')(X1(X2')+X2(X1'))+(X0')+X3$
+
+
+\end{document}
